@@ -8,7 +8,8 @@ const forecast = (lat, long, callback) => {
     "&days=1&aqi=no&alerts=no";
   request({ url, json: true }, (error, { body }) => {
     const temp = body.current.temp_c;
-    const rain = body.current.precip_in;
+    const rain = body.forecast.forecastday[0].hour[0].chance_of_rain;
+    const icon = body.current.condition.text;
 
     if (error) {
       callback("unable to connect weather service", undefined);
@@ -17,7 +18,7 @@ const forecast = (lat, long, callback) => {
     } else {
       callback(
         undefined,
-        `current tempareture ${temp} out there chance of rain ${rain}%`
+        `${icon}. Current tempareture ${temp} degress out. There are ${rain}% chance of rain `
       );
     }
   });
