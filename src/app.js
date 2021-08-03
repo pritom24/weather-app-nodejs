@@ -3,10 +3,10 @@ const express = require("express");
 const chalk = require("chalk");
 const path = require("path");
 const hbs = require("hbs");
-
 const forecast = require("./utlis/forecast");
 const geocode = require("./utlis/geocode");
 const app = express();
+const port = process.env.PORT || 3000;
 const publilcdirectirypath = path.join(__dirname, "../public");
 const viewpath = path.join(__dirname, "../templates/views");
 const partialspath = path.join(__dirname, "../templates/partials");
@@ -77,6 +77,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log(chalk.bold.red("server is up on port 3000"));
+app.listen(port, () => {
+  console.log(chalk.bold.red("server is up on port" + port));
 });
