@@ -59,6 +59,10 @@ p {
   font-size: 2rem;
   color: #888888;
 }
+#search-here {
+  font-size: 1rem;
+  color: #232323;
+}
 
 input {
   border: 3px solid #888888;

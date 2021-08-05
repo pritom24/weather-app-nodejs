@@ -1,4 +1,3 @@
-console.log("i m learning version controling");
 const express = require("express");
 const chalk = require("chalk");
 const path = require("path");
